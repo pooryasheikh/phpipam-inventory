@@ -4,9 +4,10 @@ phpIPAM Inventory is an inventory script for Ansible.
 
 ## Configuration
 
-**STEP 1)** Edit dotenv file like below:
+**STEP 1)** Create dotenv file as below:
 
 ```text
+#inventory/.env
 IPAM_ADDR=http://ipam.example.come/api/
 IPAM_API_USER=inventory
 IPAM_USER=admin
