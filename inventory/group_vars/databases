@@ -1,0 +1,4 @@
+---
+iptables_allowed_ports:
+  - port: 5260
+    type: tcp

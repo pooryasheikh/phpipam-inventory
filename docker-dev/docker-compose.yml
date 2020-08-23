@@ -1,0 +1,24 @@
+---
+version: '2'
+
+services:
+  mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+  ipam:
+    depends_on:
+      - mysql
+    build:
+      context: ./php-ipam
+    environment:
+      - MYSQL_ENV_MYSQL_USER=root
+      - MYSQL_ENV_MYSQL_ROOT_PASSWORD=my-secret-pw
+      - MYSQL_ENV_MYSQL_HOST=mysql
+    ports:
+      - "80:80"
+volumes:
+  db_data:
